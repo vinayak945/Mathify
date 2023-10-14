@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
+      <style>
+        .calculator {
+          background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+  align-items: center;
+  font-family: 'Gabarito', sans-serif;
+}
+.calculator h3 {
+  text-align: center;
+  font-family: 'Gabarito', sans-serif;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  margin: 60px 0;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 60px;
+  width: 180px;
+}
+button {
+  background-color: #0074d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+  margin-left: 60px;
+}
+#difficulty{
+  align-items: center;
+  background-color: white;
+  margin-left: 120px;
+  border-radius: 5px;
+}
+#difficulty text{
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+   <div class="calculator">
+    <h3 id="head">MATHIFY</h3>
+    <p>Calculate the following</p>
+    <button onclick="Next()" id="button2">Next</button>
+    <input type="text" id="answer" placeholder="Enter Answer">
+    <button onclick="checkAnswer()" id="button1">Check</button>
+    
+    <p id="result"></p>
+    <select id="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select>
+   </div>
+
+   <script>
+    let a, b, result, randomOperator, rf; 
+
+    function Next(){
+      let array = ["+", "-", "/", "*"];
+      randomOperator = array[Math.floor(Math.random() * array.length)];
+
+      
+      const r = document.getElementById("difficulty");
+      rf = r.value;
+
+      if (rf === "Easy") {
+        if (randomOperator == '+') {
+          a = Math.floor(Math.random() * 100);
+          b = Math.floor(Math.random() * 10);
+          result = a + b;
+        } else if (randomOperator == '-') {
+          a = Math.floor(Math.random() * 100);
+          b = Math.floor(Math.random() * 10);
+          result = a - b;
+        } else if (randomOperator == '*') {
+          a = Math.floor(Math.random() * 10);
+          b = Math.floor(Math.random() * 10);
+          result = a * b;
+        }
+      } else if (rf === "Medium") {
+        if (randomOperator == '+') {
+          a = Math.floor(Math.random() * 1000);
+          b = Math.floor(Math.random() * 100);
+          result = a + b;
+        } else if (randomOperator == '-') {
+          a = Math.floor(Math.random() * 1000);
+          b = Math.floor(Math.random() * 100);
+          result = a - b;
+        } else if (randomOperator == '*') {
+          a = Math.floor(Math.random() * 100);
+          b = Math.floor(Math.random() * 100);
+          result = a * b;
+        }
+      } else if (rf === "Hard") {
+        if (randomOperator == '+') {
+          a = Math.floor(Math.random() * 10000);
+          b = Math.floor(Math.random() * 1000);
+          result = a + b;
+        } else if (randomOperator == '-') {
+          a = Math.floor(Math.random() * 10000);
+          b = Math.floor(Math.random() * 1000);
+          result = a - b;
+        } else if (randomOperator == '*') {
+          a = Math.floor(Math.random() * 100);
+          b = Math.floor(Math.random() * 100);
+          result = a * b;
+        }
+      }
+
+      const equation = `${a} ${randomOperator} ${b}`;
+      document.getElementById('result').textContent = `Calculate: ${equation}`;
+      document.getElementById('answer').value = ''; // Clear the input field
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseInt(document.getElementById('answer').value, 10);
+      const resultElement = document.getElementById('result');
+
+      if (userAnswer === result) {
+        resultElement.textContent = 'Correct';
+      } else {
+        resultElement.textContent = 'Incorrect';
+      }
+    }
+
+    
+    Next();
+   </script>
+</body>
+</html>
