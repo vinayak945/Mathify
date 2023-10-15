@@ -3,7 +3,7 @@
 <head> <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
       <style>
         .calculator {
           background-color: white;
@@ -76,9 +76,12 @@ button {
 .bb{
   text-align: center;
 }
-        @media (max-width: 768px) {
-  /* Styles for screens up to 768px wide (typical mobile devices) */
-  /* Adjust your styles for mobile here */
+#Caption{
+  margin-top: 24%;
+  color: gray;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Gabarito', sans-serif;
 }
 
 </style>
@@ -89,9 +92,10 @@ button {
     <p id="result"></p>
     <input type="text" id="answer" placeholder="Enter Answer">
     <div class="bb">
-      <button onclick="Next()" id="button2">Next</button>
+      
     
     <button onclick="checkAnswer()" id="button1">Check</button>
+    <button onclick="Next()">Next</button>
     </div>
     
     
@@ -103,12 +107,13 @@ button {
     </select>
     </div>
    </div>
+   <p id="Caption">Developed by Vinayak Agrawal</p>
 
    <script>
     let a, b, result, randomOperator, rf; 
 
     function Next(){
-      let array = ["+", "-", "/", "*"];
+      let array = ["+", "-", "/", "×"];
       randomOperator = array[Math.floor(Math.random() * array.length)];
 
       
