@@ -18,6 +18,7 @@
 .calculator h3 {
   text-align: center;
   font-family: 'Gabarito', sans-serif;
+  font-size: 30px;
 }
 .input-container {
   display: flex;
@@ -31,6 +32,7 @@ input {
   border-radius: 5px;
   margin-left: 60px;
   width: 78%;
+  margin-left: 10%;
 }
 button {
   background-color: #0074d9;
@@ -44,33 +46,56 @@ button {
   margin-bottom: 30px;
   margin-top: 10px;
   align-items: center;
-  margin-left: 60px;
+  margin-left: 10%;
+  height: 40px;
 }
 #difficulty{
   align-items: center;
   background-color: white;
   margin-left: 120px;
   border-radius: 5px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  margin-left: 10%;
 }
 #difficulty text{
   padding: 20px;
+
+}
+#result{
+  text-align: 
+  center;
+  font-size: 30px;
+}
+.dd{
+  text-align: center;
+}
+.bb{
+  text-align: center;
 }
 </style>
 </head>
 <body>
    <div class="calculator">
     <h3 id="head">MATHIFY</h3>
-    <p>Calculate the following</p>
-    <button onclick="Next()" id="button2">Next</button>
-    <input type="text" id="answer" placeholder="Enter Answer">
-    <button onclick="checkAnswer()" id="button1">Check</button>
-    
     <p id="result"></p>
-    <select id="difficulty">
+    <input type="text" id="answer" placeholder="Enter Answer">
+    <div class="bb">
+      <button onclick="Next()" id="button2">Next</button>
+    
+    <button onclick="checkAnswer()" id="button1">Check</button>
+    </div>
+    
+    
+    <div class="dd">
+      <select id="difficulty">
         <option value="Easy">Easy</option>
         <option value="Medium">Medium</option>
         <option value="Hard">Hard</option>
     </select>
+    </div>
    </div>
 
    <script>
@@ -129,7 +154,7 @@ button {
       }
 
       const equation = `${a} ${randomOperator} ${b}`;
-      document.getElementById('result').textContent = `Calculate: ${equation}`;
+      document.getElementById('result').textContent = ` ${equation}`;
       document.getElementById('answer').value = ''; // Clear the input field
     }
 
