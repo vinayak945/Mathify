@@ -9,7 +9,8 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 100%;
+  width: 80%;
+  height: 100%;
   margin: 0 auto;
   align-items: center;
   font-family: 'Gabarito', sans-serif;
@@ -29,7 +30,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-left: 60px;
-  width: 180px;
+  width: 78%;
 }
 button {
   background-color: #0074d9;
@@ -39,8 +40,8 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   display: block;
-  width: 200px;
-  margin-bottom: 10px;
+  width: 80%;
+  margin-bottom: 30px;
   margin-top: 10px;
   align-items: center;
   margin-left: 60px;
@@ -139,13 +140,12 @@ button {
       if (userAnswer === result) {
         resultElement.textContent = 'Correct';
       } else {
-        resultElement.textContent = 'IncorrectThe correct answer is${result}';
+        resultElement.textContent = `Incorrect. The correct answer is ${result}`;
       }
     }
 
     
-    Next();
+  
    </script>
 </body>
 </html>
-to
